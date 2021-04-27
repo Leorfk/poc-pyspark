@@ -1,12 +1,15 @@
 import json
+
+
 def pega_evento(path):
-    arquivoRegras = open(path)
-    evento = json.load(arquivoRegras)
+    arquivo_regras = open(path)
+    evento = json.load(arquivo_regras)
     return evento
 
-def pega_chaves(fileItem):
+
+def pega_chaves(file_item):
     chaves = []
-    for chave in fileItem:
+    for chave in file_item:
         chaves.append(chave)
     return chaves
 
@@ -26,3 +29,7 @@ def monta_validacao(regras):
             else:
                 condicao += str(valor)
     return condicao
+
+
+def cria_condicao(path):
+    return monta_validacao(pega_regras(pega_evento(path)))
